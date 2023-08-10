@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+    <title>Verb Conjugation Chatbot</title>
+       <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 10%;
+        }
+
+        .form-chat {
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 200%;
+        }
+
+        .headline {
+            text-align: center;
+            font-weight: bold;
+            font-size: 108%;
+            margin-left: 7%;
+
+        }
+
+        .list-list {
+            text-align: left;
+        }
+        .userr-input{
+            font-weight: bold;
+            font-size: 112%;
+        }
+        .label-form{
+            font-size: 112%;
+            font-weight: bold;
+        }
+        #user_input{
+            font-size: 95%;
+            box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5);
+        }
+        #tense{
+            font-size: 95%;
+            box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5);
+        }
+        #submit{
+            box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+            background-color: rgba(217, 217, 217, 0.5);
+            height: 20%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="headline">Hello! I am your Verb Conjugation chatbot. How can I assist you today?</p>
+        <div class="form-container">
+            <form action="/" method="post" class="form-chat">
+                <label class="userr-input" for="user_input">Enter the verb:</label>
+                <input type="text" id="user_input" name="user_input">
+                <br/>
+                <br/>
+                <label class="label-form" for="tense">Enter the tense:</label>
+                <input type="text" id="tense" name="tense">
+                <br/>
+                <br/>
+                <br/>
+                <input id="submit" type="submit" value="Conjugate">
+            </form>
+        </div>
+        <h2>Conjugation:</h2>
+        <ul class="list-list">
+            {% for result in conjugation_results %}
+            <li>{{ result }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
